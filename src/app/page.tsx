@@ -3,7 +3,7 @@ import SearchBar from "./components/SearchBar";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col p-3 bg-black">
+    <main className="flex min-h-screen flex-col p-3 bg-white">
       <header>
         <SearchBar/>
       </header>
