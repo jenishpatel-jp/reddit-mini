@@ -1,10 +1,17 @@
 import React from 'react'
 
-export default function Cards() {
+
+export default function Cards( {redditPosts} ) {
+
   return (
-    <div className='  bg-white shadow-lg m-3 p-3 h-96 w-96 border-black' >
-        <h2>Image</h2>
-        <h1>Card Title</h1>
+    <div className='  bg-white shadow-lg m-3 p-3' >
+        <img
+        src= {redditPosts.thumbnail}
+        alt= "image uploaded on reddit"
+        width={redditPosts.thumbnail_height}
+        height={redditPosts.thumbnail_width}
+        />
+        <h1> {redditPosts.title} </h1>
         <p>Description of the reddit post</p>
         <button>Comments</button>
     </div>
