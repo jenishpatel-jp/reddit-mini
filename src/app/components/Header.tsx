@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import { HomeIcon } from '@heroicons/react/16/solid';
 import { signIn, signOut, useSession } from 'next-auth/react';
 
 export default function Header() {
