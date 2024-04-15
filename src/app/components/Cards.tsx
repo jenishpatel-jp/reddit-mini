@@ -4,10 +4,9 @@ import React from 'react'
 export default function Cards( {redditPosts} ) {
 
   return (
-    <div className='  bg-white shadow-lg m-3 p-3' >
+    <div className='bg-white shadow-lg m-3 p-3' >
         <img
         src= {redditPosts.thumbnail}
-        alt= "image uploaded on reddit"
         width={redditPosts.thumbnail_height}
         height={redditPosts.thumbnail_width}
         />

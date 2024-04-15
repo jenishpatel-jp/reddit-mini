@@ -2,12 +2,12 @@
 
 import { useEffect, useState} from "react";
 import Cards from "./components/Cards";
-import SearchBar from "./components/SearchBar";
+import Header from "./components/Header";
 
 const baseURL: string = 'https://www.reddit.com/r/';
 
 export default function Home() {
-  const [posts, setPosts] = useState <Post> ([]);
+  const [posts, setPosts] = useState([]);
   const [subreddit, setSubrredit] = useState <string> ('Eyebleach');
   const [isLoading, setIsLoading] = useState <boolean> (false);
   const [error, setError] = useState <any> ();
@@ -36,10 +36,6 @@ export default function Home() {
 
   
   return (
-    <main className="flex min-h-screen flex-col p-3 bg-white">
-      <header>
-        <SearchBar/>
-      </header>
       <div className=" bg-white flex" >
         <div className=" bg-white w-5/6" >
           { (posts != null) ? posts.map((post, index) => <Cards key = {index} redditPosts = {post.data}/> ) : ""  }
@@ -51,6 +47,5 @@ export default function Home() {
           </ul>
         </aside>        
       </div>
-    </main>
   );
 }
