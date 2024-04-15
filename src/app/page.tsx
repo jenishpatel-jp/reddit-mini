@@ -3,6 +3,7 @@
 import { useEffect, useState} from "react";
 import Cards from "./components/Cards";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 const baseURL: string = 'https://www.reddit.com/r/';
 
@@ -19,9 +20,9 @@ export default function Home() {
 
       try {
         const response = await fetch(`${baseURL}${subreddit}.json`)
-        const posts = await response.json();
-        setPosts(posts.data.children)
-        console.log(posts.data.children)
+        const data = await response.json();
+        setPosts(data.data.children)
+        console.log(data.data.children)
       } catch (e:any) {
         setError(e);
       }
@@ -37,14 +38,11 @@ export default function Home() {
   
   return (
       <div className=" bg-white flex" >
-        <div className=" bg-white w-5/6" >
+        <div className=" bg-white w-3/4" >
           { (posts != null) ? posts.map((post, index) => <Cards key = {index} redditPosts = {post.data}/> ) : ""  }
         </div>
-        <aside className=" shadow-lg m-3 bg-white w-1/6">
-          <h2 >Subreddit</h2>
-          <ul>
-            <li>Wall Stret Bets</li>
-          </ul>
+        <aside className=" shadow-lg ml-2 mr-5 bg-white w-1/4 h-auto">
+          <Sidebar/>
         </aside>        
       </div>
   );
