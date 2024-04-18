@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
 import { getServerSession } from "next-auth";
 import { NextAuthProvider } from "./components/SessionProvider";
-import Header from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +30,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <NextAuthProvider>
           <div className="h-screen overflow-y-scroll bg-slate-200" >
-            <Header/>
             <main> {children} </main>
           </div>
         </NextAuthProvider>

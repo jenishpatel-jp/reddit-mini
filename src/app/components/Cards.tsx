@@ -1,18 +1,48 @@
+import Image from 'next/image';
 import React from 'react'
 
+interface PostCardProps {
+  post: {
+    id: string;
+    title: string; 
+    thumbnail: string | null;
+    url: string; 
+    permalink: string;
+    score: number;
+  }
+}
 
-export default function Cards( {redditPosts} ) {
+const Cards: React.FC<PostCardProps> = ( { post } ) => {
+
+  let decodedThumbnail = post.thumbnail ? decodeURIComponent(post.thumbnail) : null;
+
+  if (decodedThumbnail) {
+    decodedThumbnail = decodedThumbnail.replace(/&amp;/g, '&')
+  }
+
+  console.log(decodedThumbnail);
 
   return (
-    <div className='bg-white shadow-lg m-3 p-3' >
-        <img
-        src= {redditPosts.thumbnail}
-        width={redditPosts.thumbnail_height}
-        height={redditPosts.thumbnail_width}
-        />
-        <h1> {redditPosts.title} </h1>
-        <p>Description of the reddit post</p>
-        <button>Comments</button>
+    <div className='bg-white shadow-lg m-3 p-3 flex-col items-center rounded-md' >
+      {
+        decodedThumbnail ? (
+        <div>
+          <Image
+          src= {decodedThumbnail}
+          width={1400}
+          height={1400}
+          alt={post.title}
+          />
+          <h1> {post.title} </h1>
+          </div>)
+        :
+        ( 
+          <h1>{post.title}</h1>
+        )
+      }
+        
     </div>
   )
 }
+
+export default Cards;
