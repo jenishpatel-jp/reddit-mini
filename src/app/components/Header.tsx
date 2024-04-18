@@ -30,26 +30,25 @@ const Header: React.FC<HeaderProps> = ( {enterSubreddit} ) => {
   }
 
 
-
     return (
       <div className='sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm'>
-        <div className='flex justify-center align-middle' >
+        <div className='flex items-center' >
         <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer' >
           <Image
           objectFit='contain'
           src="/logo.jpg"
-          width={30}
-          height={30}
+          width={40}
+          height={40}
           alt='reddit logo'
           />
         </div>
-        <div className='mx-7 flex items-center xl:min-w-[150px]' >
-          <p className='flex-1 ml-2 hidden lg:inline' >Reddit Lite</p>
+        <div className='mx-7 flex' >
+          <p className='hidden lg:inline text-lg font-semibold' >Reddit Lite</p>
         </div>
         </div>
 
         {/* Search Box*/}
-        <form className='flex flex-1 items-center space-x-2 rounded-sm border border-gray-200 bg-gray-100 px-3 py-1' >
+        <form className='flex flex-1 rounded-sm border border-gray-200 bg-gray-100 justify-center' >
           <input 
           className='flex-1 bg-transparent outline-none' 
           type='text' 
@@ -67,7 +66,7 @@ const Header: React.FC<HeaderProps> = ( {enterSubreddit} ) => {
         {session ? (
             <div
               onClick={()=> signOut() }
-              className='hidden cursor-pointer lg:flex space x-2 border border-gray-100 p-2'>
+              className='cursor-pointer lg:flex space x-2 border border-gray-100 p-2'>
               <div className='relative h-5 w-5 flex-shrink-0 ml-5'>
                 <Image
                   src="/reddit.svg"
@@ -77,9 +76,9 @@ const Header: React.FC<HeaderProps> = ( {enterSubreddit} ) => {
               />
               </div>
               <div className='flex-1 text-xs'>
-                <p className='truncate m-1 text-black font-semibold' > {session?.user?.name} </p>
+                <p className='truncate m-1 text-black font-semibold hidden md:block' > {session?.user?.name} </p>
               </div>
-                <p className='text-black ml-2 mr-3 my-1' >Sign Out</p>
+                <p className='text-black ml-2 mr-3 my-1 hidden md:block' >Sign Out</p>
               </div>
           ) : (
             <div

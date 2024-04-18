@@ -13,8 +13,9 @@ interface Subreddit {
 
 
 const Sidebar: React.FC<SidebarProps> = ({ onSelectSubreddit }) => {
-    const [initialSubreddits] = useState<string[]>(['starcraft', 'wallstreetbets', 'eyebleach', 'formula1', 'wholesomememes', 'aww', 'futurama']);
+    const [initialSubreddits] = useState<string[]>(['Starcraft', 'Wallstreetbets', 'Eyebleach', 'Formula1', 'Wholesomememes', 'Aww', 'Futurama', 'TheLastAirbender', 'Pics', 'Damnthatsinteresting', 'Gaming' ]);
     const [subreddits, setSubreddits] = useState<Subreddit[]>([]);
+    const [activeSubreddit, setActiveSubreddit] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchSubreddits = async () => {
@@ -35,15 +36,21 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectSubreddit }) => {
         fetchSubreddits();
     }, []);
 
+    const onClickSubreddit = (subreddit: string) => {
+        setActiveSubreddit(subreddit);
+        onSelectSubreddit(subreddit);
+    }
+
 
     return (
-        <div className='flex-col items-center rounded-md'>
+        <div className=' flex flex-col items-center w-full'>
         <h2 className=' font-semibold self-center text-lg p-3 m-2 text-center lg:text-3xl' >Subreddits</h2>
         {
             subreddits.map((subreddit) => (
                 <Subreddits key = {subreddit.name} 
                 subreddits = {subreddit.name}
-                onSelectSubreddit = {onSelectSubreddit}
+                onClickSubreddit = {onClickSubreddit}
+                activeSubreddit = {activeSubreddit}
                 image = {subreddit.icon_img}
                 />
             ))

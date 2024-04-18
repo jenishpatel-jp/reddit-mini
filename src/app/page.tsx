@@ -94,7 +94,7 @@ export default function Home () {
         <div className=" bg-white w-3/4" >
           {posts.map((post) => <Cards key={post.id} post={post} /> )}
         </div>
-        <aside className=" shadow-lg ml-2 mr-5 bg-white w-1/4 h-auto">
+        <aside className=" shadow-lg ml-2 m-2 bg-white w-auto h-auto">
           <Sidebar onSelectSubreddit={setSubrredit} />
         </aside>        
       </div>
