@@ -23,8 +23,6 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectSubreddit }) => {
                 initialSubreddits.map(async (subreddit) => {
                     const response = await fetch (`https://www.reddit.com/r/${subreddit}/about.json`);
                     const data = await response.json();
-                    console.log(subreddit);
-                    console.log(data.data.icon_img);
                     return {
                         name: subreddit,
                         icon_img: data.data.icon_img || null,

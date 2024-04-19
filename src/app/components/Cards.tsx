@@ -1,6 +1,7 @@
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import React from 'react'
+import Comments from './Comments';
 
 interface PostCardProps {
   post: {
@@ -21,7 +22,6 @@ const Cards: React.FC<PostCardProps> = ( { post } ) => {
     decodedThumbnail = decodedThumbnail.replace(/&amp;/g, '&')
   }
 
-  console.log(decodedThumbnail);
 
   return (
     <div className='bg-white shadow-lg m-3 p-3 flex-col rounded-md' >
@@ -33,6 +33,7 @@ const Cards: React.FC<PostCardProps> = ( { post } ) => {
           width={1300}
           height={1000}
           alt={post.title}
+          unoptimized={true}
           />
           <h1 className=' mt-2'> {post.title} </h1>
           </div>)
@@ -41,11 +42,7 @@ const Cards: React.FC<PostCardProps> = ( { post } ) => {
           <h1>{post.title}</h1>
         )
       }
-      <div className='flex justify-end mt-2'>
-        <button className=' flex items-center justify-end'>
-        	<ChatBubbleLeftIcon className='w-5 h-5 text-gray-500 hover:text-black'/>
-        </button>
-      </div>
+      <Comments permalink = {post.permalink}/>
     </div>
   )
 }
