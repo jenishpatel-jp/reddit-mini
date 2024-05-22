@@ -11,6 +11,7 @@
     "test:watch": "jest"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.3",
     "next": "14.1.4",
     "next-auth": "^4.24.7",
     "react": "^18",
