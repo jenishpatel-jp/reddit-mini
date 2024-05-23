@@ -39,7 +39,6 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectSubreddit }) => {
         onSelectSubreddit(subreddit);
     }
 
-
     return (
         <div className=' flex flex-col items-center w-full'>
         <h2 className=' font-semibold self-center text-lg p-3 m-2 text-center lg:text-3xl' >Subreddits</h2>
