@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import RedditProvider from "next-auth/providers/reddit";
 
-export const authOptions = {
+const authOptions = {
     providers: [
         RedditProvider({
           clientId: process.env.REDDIT_CLIENT_ID,
@@ -15,6 +15,6 @@ export const authOptions = {
       ],
 }
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
 
 export {handler as GET, handler as POST };

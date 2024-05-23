@@ -32,6 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSelectSubreddit }) => {
             setSubreddits(fetchedSubreddits);
         };
         fetchSubreddits();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const onClickSubreddit = (subreddit: string) => {

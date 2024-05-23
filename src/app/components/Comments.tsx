@@ -36,6 +36,7 @@ const Comments: React.FC<CommentsProp> = ( {permalink} )  => {
     if (isCommentClicked) {
       fetchComments();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCommentClicked, permalink]);
 
 
