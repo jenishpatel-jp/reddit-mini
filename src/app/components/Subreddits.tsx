@@ -32,7 +32,7 @@ const Subreddits: React.FC<Subreddits> = ({ subreddits, onClickSubreddit, image,
           <div className='w-50 h-50' ></div>
         )
       } 
-        <h2 className=' text-lg font-medium overflow-hidden align-middle hidden lg:block md:block'>{subreddits}</h2>
+        <h2 className=' text-lg font-medium overflow-hidden align-middle hidden lg:block md:block text-black'>{subreddits}</h2>
     </button>
   )
 };

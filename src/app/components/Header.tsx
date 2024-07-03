@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ enterSubreddit }) => {
           />
         </div>
         <div className="mx-7 flex">
-          <p className="hidden lg:inline text-lg font-semibold">Reddit Lite</p>
+          <p className="hidden lg:inline text-lg font-semibold text-black">Reddit Lite</p>
         </div>
       </div>
 
